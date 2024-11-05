@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Palindrome Checker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main">
+      <h2>Palindrome Checker</h2>
+      <span id="insert-text-span">
+        <input
+          type="text"
+          id="insert-text-input"
+          placeholder="Type your word"
+          maxlength="100"
+        />
+        <button id="insert-text-button" onclick="CheckPalindrome()">
+          Check Palindrome
+        </button>
+      </span>
+      <p id="decision">Decision</p>
+    </div>
+
+    <script>
+      let input = document.getElementById("insert-text-input");
+      let decision = document.getElementById("decision");
+      function CheckPalindrome() {
+        let normalText = input.value.trim();
+        const reversedText = normalText.split("").reverse().join("");
+        if (normalText === "") {
+          return;
+        } else {
+          if (normalText === reversedText) {
+            decision.style.color = "lime";
+            decision.textContent = "This is a Palindrome";
+          } else {
+            decision.style.color = "red";
+            decision.textContent = "This is NOT a Palindrome";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
